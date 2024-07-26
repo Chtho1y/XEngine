@@ -59,7 +59,7 @@ Or add the following to your project's `manifest.json` file in the `Packages` fo
 ```json
 {
   "dependencies": {
-    "com.chtho1y.xengine": "https://github.com/Chtho1y/XEngine.git"
+    "com.chtho1y.xengine": "https://github.com/Chtho1y/XEngine/XEngine/_XEngine.git"
   }
 }
 ```
