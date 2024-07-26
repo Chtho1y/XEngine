@@ -152,4 +152,4 @@ Join our community to discuss and get support for XEngine:
 
 ## Buy Me a Milk Tea
 
-If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate.md). Your support will enable us to improve and develop faster.
+If XEngine has helped you, consider [buying me a milk tea](Donate/Donate.md). Your support will enable us to improve and develop faster.
