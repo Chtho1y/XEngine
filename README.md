@@ -62,7 +62,8 @@ To get a quick overview of how to run XEngine on various platforms, refer to our
 * [Flow Module | 流程模块](Books/3-7-流程模块.md): Overview of the business logic flow. 展示商业化流程模块。
 * [UI Module | UI模块](Books/3-5-UI模块.md): Guide to developing commercial-grade UI. 展示商业化UI模块。
 
-## <strong>Project Structure | 项目结构
+## Project Structure | 项目结构
+<strong>
 ```
 XEngine
 ├── Editor
@@ -141,6 +142,7 @@ XEngine
 │ ├── XToggle
 │ ├── XTransform
 ```
+<\strong>
 
 ## Recommended Third-Party Plugins | 推荐的第三方插件
 
