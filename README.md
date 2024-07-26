@@ -51,7 +51,8 @@ XEngine 是一个强大且新手友好的 Unity 框架，提供跨平台开发�
 ## Quick Start Guide | 快速入门指南
 
 To get a quick overview of how to run XEngine on various platforms, in Unity Package Manager, Add Package from git URL:
-要快速了解如何在各个平台上运行 XEngine, 在 Unity 包管理器中通过 git URL 添加包：
+要快速了解如何在各个平台上运行 XEngine, 在 Unity 包管理器中通过 git URL 添加包。
+
 Or add the following to your project's `manifest.json` file in the `Packages` folder:
 或者在项目的 `Packages` 文件夹中的 `manifest.json` 文件中添加以下内容：
 ```json
