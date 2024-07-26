@@ -1,6 +1,6 @@
 ## XEngine
 <img src="https://img.shields.io/github/stars/Chtho1y/XEngine?style=social">
-<strong>你的star就是我的动力</strong>
+<strong>你的star就是我的动力👆</strong>
 
 <p align="center">
     <img src="others/XEngine.png" alt="XEngine Logo" width="384" height="384">
