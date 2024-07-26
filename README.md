@@ -155,14 +155,14 @@ To ensure the best experience with XEngine, we recommend using the following thi
 
 ## Community and Support | 社区和支持
 
-Join our community to discuss and get support for XEngine:
-加入我们的社区，讨论并获取 XEngine 的支持：
+<strong> Join our community to discuss and get support for XEngine:
+加入我们的社区，讨论并获取 XEngine 的支持：</strong>
 * [QQ Group: 574763941](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=C_grV7Zwbegcjlk79wDdvkh8PtRKPkDU&authKey=pwnX5CZ%2FWmWD4D5tRFbHyOy6WHXJ99L%2B%2BCzZH%2B33lH9Qx1Z5AtbVEZXIhEwYqFHq&noverify=0&group_code=574763941)
 
 ## Buy Me a Milk Tea | 请我喝杯奶茶
 
-<strong> If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
-如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。 </strong>
+If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
+如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。
 
 ## Star History
 
