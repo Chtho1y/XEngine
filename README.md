@@ -10,7 +10,8 @@
 <h3 align="center"><strong>XEngine</strong></h3>
 
 <p align="center">
-  <strong>The Ultimate Unity Framework Solution /n </strong>
+  <strong>The Ultimate Unity Framework Solution</strong>
+    
     <br>
   <a style="text-decoration:none">
     <img src="https://img.shields.io/badge/Unity%20Ver-2021.3.20++-blue.svg?style=flat-square" alt="Unity Version" />
