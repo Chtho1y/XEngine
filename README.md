@@ -1,5 +1,5 @@
 ## XEngine
-**你的star是我的动力**  
+**你的star就是我的动力**  
 **↓↓↓**  
 <img src="https://img.shields.io/github/stars/Chtho1y/XEngine?style=social">
 
@@ -30,32 +30,39 @@
   <br>
 </p>
 
-## Introduction
+## Introduction | 简介
 
 XEngine is a robust and beginner-friendly Unity framework that provides a comprehensive solution for cross-platform development. Whether you are an individual developer or part of a team, XEngine offers a clean codebase, clear documentation, and high performance, making it an excellent choice for commercial-grade projects.
 
-## Why Choose XEngine?
+XEngine 是一个强大且新手友好的 Unity 框架，提供跨平台开发的综合解决方案。无论您是个人开发者还是团队的一员，XEngine 都提供了清晰的代码库、详尽的文档和高性能，是商业级项目的理想选择。
 
-1. **Easy to Use**: Get started with XEngine in just 5 minutes. The framework offers a clean and organized codebase, making it easy to understand and extend. You can quickly remove or replace modules you don't need, thanks to its high cohesion and low coupling design.
-2. **Commercial-Grade Performance**: Leveraging XLua for hot updates, XEngine is optimized for mobile platforms and has been validated in high-DAU commercial games. It features next-gen HybridCLR for hot updates, the best Luban configuration tables, and the YooAsset resource framework, ensuring efficient resource management and memory usage.
-3. **Cross-Platform Support**: XEngine supports multiple platforms, including Steam, WeChat Minigame, and AppStore. The framework has already been used in projects available on these platforms.
-4. **Modular Design**: From asset bundles to UI components, XEngine's modular architecture allows you to pick and choose the features you need for your project, enhancing flexibility and scalability.
+## Why Choose XEngine? | 为什么选择 XEngine？
 
-## Quick Start Guide
+1. **Easy to Use | 易于使用**: Get started with XEngine in just 5 minutes. The framework offers a clean and organized codebase, making it easy to understand and extend. You can quickly remove or replace modules you don't need, thanks to its high cohesion and low coupling design.
+   只需 5 分钟即可开始使用 XEngine。框架提供了整洁有序的代码库，易于理解和扩展。由于其高内聚低耦合的设计，您可以快速移除或替换不需要的模块。
+   
+2. **Commercial-Grade Performance | 商业级性能**: Leveraging XLua for hot updates, XEngine is optimized for mobile platforms and has been validated in high-DAU commercial games. It features next-gen HybridCLR for hot updates, the best Luban configuration tables, and the YooAsset resource framework, ensuring efficient resource management and memory usage.
+   利用 XLua 进行热更新，XEngine 针对移动平台进行了优化，并在高 DAU 商业游戏中得到验证。它采用下一代 HybridCLR 进行热更新，最佳的 Luban 配置表和 YooAsset 资源框架，确保高效的资源管理和内存使用。
+
+3. **Cross-Platform Support | 跨平台支持**: XEngine supports multiple platforms, including Steam, WeChat Minigame, and AppStore. The framework has already been used in projects available on these platforms.
+   XEngine 支持多个平台，包括 Steam、微信小游戏和 AppStore。该框架已被用于这些平台上的项目。
+
+4. **Modular Design | 模块化设计**: From asset bundles to UI components, XEngine's modular architecture allows you to pick and choose the features you need for your project, enhancing flexibility and scalability.
+   从资源包到 UI 组件，XEngine 的模块化架构允许您根据项目需求选择所需功能，提高了灵活性和可扩展性。
+
+## Quick Start Guide | 快速入门指南
 
 To get a quick overview of how to run XEngine on various platforms, refer to our [Platform Runthrough Guide](Books/99-各平台运行RunAble.md). Here are some key modules:
+要快速了解如何在各个平台上运行 XEngine，请参阅我们的 [平台运行指南](Books/99-各平台运行RunAble.md)。以下是一些关键模块：
 
-* [Introduction](Books/0-介绍.md): An overview of the framework.
-* [Framework Overview](Books/2-框架概览.md): Detailed look at the framework's architecture.
-* [Resource Module](Books/3-1-资源模块.md): Insights into resource management.
-* [Event Module](Books/3-2-事件模块.md): Explanation of the event handling system.
-* [Memory Pool Module](Books/3-3-内存池模块.md): Details on memory pooling mechanisms.
-* [Object Pool Module](Books/3-4-对象池模块.md): Description of the object pooling system.
-* [Configuration Module](Books/3-6-配置表模块.md): Guide to using configuration tables.
-* [Flow Module](Books/3-7-流程模块.md): Overview of the business logic flow.
-* [UI Module](Books/3-5-UI模块.md): Guide to developing commercial-grade UI.
+* [Introduction | 介绍](Books/0-介绍.md): An overview of the framework. 简单介绍框架。
+* [Framework Overview | 框架概览](Books/2-框架概览.md): Detailed look at the framework's architecture. 展示框架概览。
+* [Event Module | 事件模块](Books/3-2-事件模块.md): Explanation of the event handling system. 展示事件模块概览。
+* [Object Pool Module | 对象池模块](Books/3-4-对象池模块.md): Description of the object pooling system. 展示对象池模块概览。
+* [Flow Module | 流程模块](Books/3-7-流程模块.md): Overview of the business logic flow. 展示商业化流程模块。
+* [UI Module | UI模块](Books/3-5-UI模块.md): Guide to developing commercial-grade UI. 展示商业化UI模块。
 
-## <strong>Project Structure
+## <strong>Project Structure | 项目结构
 ```
 XEngine
 ├── Editor
@@ -135,21 +142,26 @@ XEngine
 │ ├── XTransform
 ```
 
-## Recommended Third-Party Plugins
+## Recommended Third-Party Plugins | 推荐的第三方插件
 
 To ensure the best experience with XEngine, we recommend using the following third-party plugins. Please purchase and import them as needed:
+为了确保使用 XEngine 的最佳体验，我们推荐使用以下第三方插件。请根据需要购买并导入：
 
-   - [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
-   - [InGameDebugConsole](https://assetstore.unity.com/packages/tools/gui/in-game-debug-console-68068)
+* [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+* [InGameDebugConsole](https://assetstore.unity.com/packages/tools/gui/in-game-debug-console-68068)
 
-## Open Source Projects We Recommend
+## Open Source Projects We Recommend | 推荐的开源项目
+
 * [UniTask](https://github.com/Cysharp/UniTask)
 
-## Community and Support
+## Community and Support | 社区和支持
 
 Join our community to discuss and get support for XEngine:
+加入我们的社区，讨论并获取 XEngine 的支持：
 * [QQ Group: 574763941](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=C_grV7Zwbegcjlk79wDdvkh8PtRKPkDU&authKey=pwnX5CZ%2FWmWD4D5tRFbHyOy6WHXJ99L%2B%2BCzZH%2B33lH9Qx1Z5AtbVEZXIhEwYqFHq&noverify=0&group_code=574763941)
 
-## Buy Me a Milk Tea
+## Buy Me a Milk Tea | 请我喝杯奶茶
 
 If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
+如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。
+
