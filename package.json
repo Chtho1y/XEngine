@@ -1,0 +1,16 @@
+{
+  "name": "com.chtho1y.xengine",
+  "displayName": "XEngine",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "description": "The Ultimate Unity Framework Solution",
+  "keywords": [
+    "xengine",
+    "example"
+  ],
+  "author": {
+    "name": "Chtho1y",
+    "email": "love.code@163.com",
+    "url": "https://github.com/Chtho1y/XEngine"
+  }
+}
