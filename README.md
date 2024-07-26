@@ -11,7 +11,7 @@
   <strong>一站式Unity商业化游戏框架解决方案 | The Ultimate Unity Framework Solution</strong>
     <br>
   <a style="text-decoration:none">
-    <img src="https://img.shields.io/badge/Unity%20Ver-2021.3.20++-blue.svg?style=flat-square" alt="Unity Version" />
+    <img src="https://img.shields.io/badge/Unity%20Ver-2021.3++-blue.svg?style=flat-square" alt="Unity Version" />
   </a>
   <a style="text-decoration:none">
     <img src="https://img.shields.io/github/license/Chtho1y/XEngine" alt="License" />
