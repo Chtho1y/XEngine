@@ -50,16 +50,19 @@ XEngine 是一个强大且新手友好的 Unity 框架，提供跨平台开发�
 
 ## Quick Start Guide | 快速入门指南
 
-To get a quick overview of how to run XEngine on various platforms, refer to our [Platform Runthrough Guide](Books/99-各平台运行RunAble.md). Here are some key modules:
-要快速了解如何在各个平台上运行 XEngine，请参阅我们的 [平台运行指南](Books/99-各平台运行RunAble.md)。以下是一些关键模块：
-
-* [Introduction | 介绍](Books/0-介绍.md): An overview of the framework. 简单介绍框架。
-* [Framework Overview | 框架概览](Books/2-框架概览.md): Detailed look at the framework's architecture. 展示框架概览。
-* [Event Module | 事件模块](Books/3-2-事件模块.md): Explanation of the event handling system. 展示事件模块概览。
-* [Object Pool Module | 对象池模块](Books/3-4-对象池模块.md): Description of the object pooling system. 展示对象池模块概览。
-* [Engine Module | 引擎模块](Books/3-6-引擎模块.md): Overview of the engine components. 展示引擎模块概览。
-* [Asset Bundle Module | AB包模块](Books/3-7-AB包模块.md): Guide to managing asset bundles. 展示AB包模块概览。
-* [UI Module | UI模块](Books/3-5-UI模块.md): Guide to developing commercial-grade UI. 展示商业化UI模块。
+To get a quick overview of how to run XEngine on various platforms, in Unity Package Manager, Add Package from git URL:
+要快速了解如何在各个平台上运行 XEngine, 在 Unity 包管理器中通过 git URL 添加包。
+ <img src="https://github.com/user-attachments/assets/815d0c10-cf15-42f2-a9a5-a991c4b6cfcb" width="600"/>
+ 
+Or add the following to your project's `manifest.json` file in the `Packages` folder:
+或者在项目的 `Packages` 文件夹中的 `manifest.json` 文件中添加以下内容：
+```json
+{
+  "dependencies": {
+    "com.chtho1y.xengine": "https://github.com/Chtho1y/XEngine.git"
+  }
+}
+```
 
 ## Project Structure | 项目结构
 ```
@@ -160,9 +163,8 @@ Join our community to discuss and get support for XEngine:
 * [QQ Group: 574763941](https://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=C_grV7Zwbegcjlk79wDdvkh8PtRKPkDU&authKey=pwnX5CZ%2FWmWD4D5tRFbHyOy6WHXJ99L%2B%2BCzZH%2B33lH9Qx1Z5AtbVEZXIhEwYqFHq&noverify=0&group_code=574763941)
 
 ## Buy Me a Milk Tea | 请我喝杯奶茶
-
 <strong> If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
-如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。 </strong>
+如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。</strong>
 
 ## Star History
 
