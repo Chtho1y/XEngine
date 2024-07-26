@@ -160,6 +160,6 @@ Join our community to discuss and get support for XEngine:
 
 ## Buy Me a Milk Tea | 请我喝杯奶茶
 
-If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
-如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。
+<strong> If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
+如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。 </strong>
 
