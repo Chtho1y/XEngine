@@ -1,10 +1,10 @@
 ## XEngine
 **你的star是我的动力**  
-**↓**  
-<img src="https://img.shields.io/github/stars/Chtho1y/XEngine.svg?style=social">
+**↓↓↓**  
+<img src="https://img.shields.io/github/stars/Chtho1y/XEngine?style=social">
 
 <p align="center">
-    <img src="path/to/your/logo.png" alt="XEngine Logo" width="384" height="384">
+    <img src="XEngine/XEngine.png" alt="XEngine Logo" width="384" height="384">
 </p>
 
 <h3 align="center"><strong>XEngine</strong></h3>
@@ -138,15 +138,12 @@ XEngine
 ## Recommended Third-Party Plugins
 
 To ensure the best experience with XEngine, we recommend using the following third-party plugins. Please purchase and import them as needed:
-   - [Sirenix](https://assetstore.unity.com/packages/tools/utilities/odin-inspector-and-serializer-89041): For enhanced editor functionalities.
+
+   - [DoTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
+   - [InGameDebugConsole](https://assetstore.unity.com/packages/tools/gui/in-game-debug-console-68068)
 
 ## Open Source Projects We Recommend
-
-* [YooAsset](https://github.com/tuyoogame/YooAsset): A commercial-grade resource management system validated in high-DAU games.
-* [JEngine](https://github.com/JasonXuDeveloper/JEngine): A solution for hot updates in Unity games.
-* [HybridCLR](https://github.com/focus-creative-games/hybridclr): A near-perfect native C# hot update solution for Unity, featuring complete functionality, zero cost, high performance, and low memory usage.
-* [Fantasy](https://github.com/qq362946/Fantasy): A commercial-grade server framework that's simple and easy to use, derived from ETServer.
-* [GameNetty](https://github.com/ALEXTANGXIAO/GameNetty): A front-end and back-end solution package from ET8.1, providing a minimal client size and almost zero-cost integration into your framework.
+* [UniTask](https://github.com/Cysharp/UniTask)
 
 ## Community and Support
 
@@ -155,4 +152,4 @@ Join our community to discuss and get support for XEngine:
 
 ## Buy Me a Milk Tea
 
-If XEngine has helped you, consider [buying me a milk tea](Books/Donate.md). Your support will enable us to improve and develop faster.
+If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate.md). Your support will enable us to improve and develop faster.
