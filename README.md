@@ -1,4 +1,7 @@
-# XEngine
+## XEngine
+**你的star是我的动力**  
+**↓**  
+<img src="https://img.shields.io/github/stars/yzyyz1387/nonebot_plugin_code.svg?style=social">  
 
 <p align="center">
     <img src="path/to/your/logo.png" alt="XEngine Logo" width="384" height="384">
