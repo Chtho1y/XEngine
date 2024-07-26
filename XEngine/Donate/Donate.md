@@ -1,4 +1,4 @@
-## Buy me a coffee.
+## Buy me a milk tea.
 
 您的赞助会让我做得更快更好，如果觉得XEngine对您有帮助，不妨赞助我买杯奶茶吧~
 
