@@ -158,8 +158,8 @@ To ensure the best experience with XEngine, we recommend using the following thi
 
 ## Open Source Projects We Recommend | 推荐的开源项目
 
-* [UniTask](https://github.com/Cysharp/UniTask)
-* [UniWebView](https://docs.uniwebview.com/)
+* [UniTask](https://github.com/Cysharp/UniTask)框架中具有UniTask工具类，替换Unity协程的高性能解决方案。
+* [UniWebView](https://docs.uniwebview.com/)框架中具有UniWebView工具类，支持Android/iOS轻松快捷地使用原生应用内嵌浏览器打开网页、本地HTML文件等。
 
 ## Community and Support | 社区和支持
 
