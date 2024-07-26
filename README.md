@@ -2,7 +2,7 @@
 **你的star就是我的动力**  <img src="https://img.shields.io/github/stars/Chtho1y/XEngine?style=social">
 
 <p align="center">
-    <img src="XEngine/XEngine.png" alt="XEngine Logo" width="384" height="384">
+    <img src="others/XEngine.png" alt="XEngine Logo" width="384" height="384">
 </p>
 
 <h3 align="center"><strong>XEngine</strong></h3>
@@ -167,7 +167,7 @@ Join our community to discuss and get support for XEngine:
 
 ## Buy Me a Milk Tea | 请我喝杯奶茶
 <strong> If XEngine has helped you, consider [buying me a milk tea](XEngine/Donate/Donate.md). Your support will enable us to improve and develop faster.
-如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](XEngine/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。</strong>
+如果 XEngine 对您有帮助，考虑[请我喝杯奶茶](others/Donate/Donate.md)。您的支持将帮助我更好更快地改进和发展。</strong>
 
 ## Star History
 
