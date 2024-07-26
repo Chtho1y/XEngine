@@ -10,16 +10,16 @@ XEngine
     <img src="https://img.shields.io/badge/Unity%20Ver-2021.3.20++-blue.svg?style=flat-square" alt="Unity Version" />
   </a>
   <a style="text-decoration:none">
-    <img src="https://img.shields.io/github/license/YourUsername/XEngine" alt="License" />
+    <img src="https://img.shields.io/github/license/Chtho1y/XEngine" alt="License" />
   </a>
   <a style="text-decoration:none">
-    <img src="https://img.shields.io/github/last-commit/YourUsername/XEngine" alt="Last Commit" />
+    <img src="https://img.shields.io/github/last-commit/Chtho1y/XEngine" alt="Last Commit" />
   </a>
   <a style="text-decoration:none">
-    <img src="https://img.shields.io/github/issues/YourUsername/XEngine" alt="Issues" />
+    <img src="https://img.shields.io/github/issues/Chtho1y/XEngine" alt="Issues" />
   </a>
   <a style="text-decoration:none">
-    <img src="https://img.shields.io/github/languages/top/YourUsername/XEngine" alt="Top Language" />
+    <img src="https://img.shields.io/github/languages/top/Chtho1y/XEngine" alt="Top Language" />
   </a>
   <br>
 </p>
@@ -43,24 +43,85 @@ Object Pool Module: Description of the object pooling system.
 Configuration Module: Guide to using configuration tables.
 Flow Module: Overview of the business logic flow.
 UI Module: Guide to developing commercial-grade UI.
-Project Structure
-less
-复制代码
-Assets
-├── AssetRaw            // Hot update resource directory
-├── Atlas               // Auto-generated atlas directory
-├── HybridCLRData       // HybridCLR related directory
-├── XEngine             // Core framework directory
-└── GameScripts         // Game scripts directory
-    ├── Editor          // Editor scripts
-    ├── Main            // Main program scripts (launcher and flow)
-    └── HotFix          // Hot update scripts directory [Folder]
-        ├── GameBase    // Game base framework scripts [Dll]
-        ├── GameProto   // Game configuration protocol scripts [Dll]  
-        ├── BattleCore  // Core battle scripts [Dll] 
-        └── GameLogic   // Game logic scripts [Dll]
-            ├── GameApp.cs                  // Hot update main entry
-            └── GameApp_RegisterSystem.cs   // Hot update main entry registration system   
+
+##Project Structure
+XEngine
+├── Editor
+│   ├── AssetBundleBuilder
+│   │   ├── AssetBundleBuilder
+│   │   ├── AssetBundleBuilderOptions
+│   │   ├── AssetBundleBuilderWindow
+│   │   ├── Res2BundleBuilder
+│   ├── UIBuilder
+│   │   ├── ComponentType
+│   │   ├── LuaCodeGenerator
+│   │   ├── UIBuilderWindow
+│   ├── EmmyLuaService
+│   ├── GameEditor
+│   ├── MissingScriptsAndEventsFinder
+│   ├── ProtoTool
+├── Engine
+│   ├── Bundle
+│   │   ├── AssetBundleUpdater
+│   │   ├── BundleInfo
+│   │   ├── BundleManager
+│   │   ├── CryptoTool
+│   │   ├── PathProtocol
+│   │   ├── ResourceMode
+│   │   ├── VersionInfo
+│   ├── Lua
+│   │   ├── LuaLifecycle
+│   │   ├── XLuaSimulator
+│   ├── Pool
+│   │   ├── GameObjectPool
+│   │   ├── GameObjectPoolManager
+│   │   ├── ObjectPool
+│   ├── Utils
+│   │   ├── AnimationEventHandler
+│   │   ├── CollisionBehaviour
+│   │   ├── GameUtil
+│   │   ├── HttpUtil
+│   │   ├── LogPrinter
+│   │   ├── MonoSingleton
+│   │   ├── ParticleScaler
+│   │   ├── Singleton
+│   │   ├── StringUtil
+│   │   ├── TimeUtil
+│   │   ├── TriggerBehaviour
+│   │   ├── TweenUtil
+│   │   ├── UniTaskUtil
+│   │   ├── UniWebViewUtil
+│   │   ├── GameManager
+│   │   ├── UnityEventHelper
+├── Main
+│   ├── BundleServerConfig
+│   ├── GameLoaderProgress
+│   ├── GameRoot
+├── UI
+│   ├── DragButton
+│   ├── EmptyGraphic
+│   ├── Irregular
+│   ├── ScreenFit
+│   ├── TextEx
+│   ├── Transition
+│   ├── UIEvent
+│   ├── UIUtil
+│   ├── XButton
+│   ├── XButtonGroup
+│   ├── XComponent
+│   ├── XDragButton
+│   ├── XDropdown
+│   ├── XImage
+│   ├── XInputField
+│   ├── XRawImage
+│   ├── XRectTransform
+│   ├── XScrollBar
+│   ├── XScrollRect
+│   ├── XSlider
+│   ├── XText
+│   ├── XToggle
+│   ├── XTransform
+
 Recommended Third-Party Plugins
 To ensure the best experience with XEngine, we recommend using the following third-party plugins. Please purchase and import them as needed:
 
@@ -77,5 +138,3 @@ Join our community to discuss and get support for XEngine:
 QQ Group: 574763941
 Buy Me a Milk Tea
 If XEngine has helped you, consider buying me a milk tea. Your support will enable us to improve and develop faster.
-
-Feel free to modify the logo path, contact details, and any other specific information that suits your project. Let me know if you need further adjustments or additions!
