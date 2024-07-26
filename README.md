@@ -57,7 +57,8 @@ To get a quick overview of how to run XEngine on various platforms, refer to our
 * [Framework Overview | 框架概览](Books/2-框架概览.md): Detailed look at the framework's architecture. 展示框架概览。
 * [Event Module | 事件模块](Books/3-2-事件模块.md): Explanation of the event handling system. 展示事件模块概览。
 * [Object Pool Module | 对象池模块](Books/3-4-对象池模块.md): Description of the object pooling system. 展示对象池模块概览。
-* [Flow Module | 流程模块](Books/3-7-流程模块.md): Overview of the business logic flow. 展示商业化流程模块。
+* [Engine Module | 引擎模块](Books/3-6-引擎模块.md): Overview of the engine components. 展示引擎模块概览。
+* [Asset Bundle Module | AB包模块](Books/3-7-AB包模块.md): Guide to managing asset bundles. 展示AB包模块概览。
 * [UI Module | UI模块](Books/3-5-UI模块.md): Guide to developing commercial-grade UI. 展示商业化UI模块。
 
 ## Project Structure | 项目结构
