@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/github/stars/Chtho1y/XEngine.svg?style=social">
 
 <p align="center">
-    <img src="path/to/your/logo.png" alt="XEngine Logo" width="384" height="384">
+    <img src="XEngine/XEngine.png" alt="XEngine Logo" width="384" height="384">
 </p>
 
 <h3 align="center"><strong>XEngine</strong></h3>
