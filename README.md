@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/Unity%20Ver-2021.3.20++-blue.svg?style=flat-square" alt="Unity Version" />
   </a>
   <a style="text-decoration:none">
-    <img src="https://img.shields.io/github/license/Chtho1y/XEngine/License.txt" alt="License" />
+    <img src="https://img.shields.io/github/license/Chtho1y/XEngine" alt="License" />
   </a>
   <a style="text-decoration:none">
     <img src="https://img.shields.io/github/last-commit/Chtho1y/XEngine" alt="Last Commit" />
