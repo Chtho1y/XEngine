@@ -5,7 +5,8 @@
   "unity": "2019.4",
   "description": "The Ultimate Unity Framework Solution",
   "keywords": [
-    "xengine"
+    "runtime",
+    "editor"
   ],
   "author": {
     "name": "Chtho1y",
@@ -15,6 +16,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Chtho1y/XEngine.git",
-    "directory": "XEngine/Runtime"
+    "directory": "XEngine/_XEngine"
   }
 }
