@@ -58,8 +58,8 @@ To get a quick overview of how to run XEngine on various platforms, in Unity Pac
 https://github.com/Chtho1y/XEngine.git
 ```
 
- <img src="https://github.com/user-attachments/assets/d90435c2-0db5-40a9-ab30-bbe9c00ca089" width="600"/>
- 
+ <img src="https://github.com/user-attachments/assets/82faad3b-f08d-41c6-a927-f6d5647b7abf" width="600"/>
+
 Or add the following to your project's `manifest.json` file in the `Packages` folder:
 或者在项目的 `Packages` 文件夹中的 `manifest.json` 文件中添加以下内容：
 ```json
