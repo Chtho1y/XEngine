@@ -59,7 +59,6 @@ https://github.com/Chtho1y/XEngine.git
 ```
 
  <img src="https://github.com/user-attachments/assets/82faad3b-f08d-41c6-a927-f6d5647b7abf" width="600"/>
- 
 <br><br>
 
 Or add the following to your project's `manifest.json` file in the `Packages` folder:
