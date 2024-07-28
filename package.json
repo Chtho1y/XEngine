@@ -16,6 +16,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Chtho1y/XEngine.git",
-    "directory": "Runtime"
+    "directory": "XEngine/Runtime"
   }
 }
