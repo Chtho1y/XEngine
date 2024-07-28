@@ -9,9 +9,8 @@
 <h3 align="center"><strong>XEngine</strong></h3>
 
 <p align="center">
-  <strong>一站式Unity商业化游戏框架解决方案 | The Ultimate Unity Framework Solution
-  </strong>
-  <br>
+  <strong>一站式Unity商业化游戏框架解决方案 | The Ultimate Unity Framework Solution</strong>
+  <br><br>
   <a style="text-decoration:none">
     <img src="https://img.shields.io/badge/Unity%20Ver-2021.3++-blue.svg?style=flat-square" alt="Unity Version" />
   </a>
