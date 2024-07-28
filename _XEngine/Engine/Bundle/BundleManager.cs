@@ -253,7 +253,14 @@ namespace XEngine.Engine
             asy.allowSceneActivation = false;
             float progress = 0f;
             onLoading?.Invoke(0f);
-            while (asy.progress < 0.9f || progress < 1f)
+
+            while (asy.progress < 0.9f)
+            {
+                onLoading?.Invoke(asy.progress);
+                yield return null;
+            }
+
+            while (progress < 1f)
             {
                 progress += 0.01f;
                 if (progress > 1f)
@@ -263,13 +270,19 @@ namespace XEngine.Engine
                 onLoading?.Invoke(progress);
                 yield return new WaitForEndOfFrame();
             }
+
             UnloadUnusedAssets(withGC: true);
             yield return new WaitForEndOfFrame();
-            onLoading?.Invoke(1f);
-            asy.allowSceneActivation = true;
-            onLoaded?.Invoke();
-            yield return new WaitForEndOfFrame();
-        }
 
+            asy.allowSceneActivation = true;
+
+            while (!asy.isDone)
+            {
+                yield return null;
+            }
+
+            onLoading?.Invoke(1f);
+            onLoaded?.Invoke();
+        }
     }
 }

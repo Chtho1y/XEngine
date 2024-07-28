@@ -144,17 +144,17 @@ namespace XEngine.Editor
             return "XEngine.UI." + typeName;
         }
 
-        public static bool IsValueChangedXType(XComponentType type)
+        public static bool IsValueChangedType(XComponentType type)
         {
             switch (type)
             {
-                case XComponentType.XInputField:
                 case XComponentType.XSlider:
-                    return true;
                 case XComponentType.XToggle:
+                case XComponentType.XDropdown:
+                    return true;
+                case XComponentType.XInputField:
                 case XComponentType.XScrollBar:
                 case XComponentType.XScrollRect:
-                case XComponentType.XDropdown:
                 default:
                     return false;
             };
@@ -178,11 +178,15 @@ namespace XEngine.Editor
         private static string MetaOnRegister(string nodeName, XComponentType type)
         {
             string luaName = $"{type}_{nodeName}";
-            if (type == XComponentType.XButton)
+            if (IsValueChangedType(type))
+            {
+                return $"    UnityEventHelper.RegisterEvent(self.{luaName}, UnityEventHelper.ValueChanged, function (data) self:On_{luaName}_ValueChanged(data) end);\n";
+            }
+            else if (type == XComponentType.XButton)
             {
                 return $"    UnityEventHelper.RegisterEvent(self.{luaName}, UnityEventHelper.Click, function (data) self:On_{luaName}_Click(data) end);\n";
             }
-            else if (IsValueChangedXType(type))
+            else if (type == XComponentType.XInputField)
             {
                 return $"    UnityEventHelper.RegisterEvent(self.{luaName}, UnityEventHelper.ValueChanged, function (data) self:On_{luaName}_ValueChanged(data) end);\n" +
                        $"    UnityEventHelper.RegisterEvent(self.{luaName}, UnityEventHelper.EndEdit, function (data) self:On_{luaName}_EndEdit(data) end);\n" +
@@ -204,11 +208,15 @@ namespace XEngine.Editor
         private static string MetaOnRemove(string nodeName, XComponentType type)
         {
             string luaName = $"{type}_{nodeName}";
-            if (type == XComponentType.XButton)
+            if (IsValueChangedType(type))
+            {
+                return $"    UnityEventHelper.RemoveEvent(self.{luaName}, UnityEventHelper.ValueChanged);\n";
+            }
+            else if (type == XComponentType.XButton)
             {
                 return $"    UnityEventHelper.RemoveEvent(self.{luaName}, UnityEventHelper.Click);\n";
             }
-            else if (IsValueChangedXType(type))
+            else if (type == XComponentType.XInputField)
             {
                 return $"    UnityEventHelper.RemoveEvent(self.{luaName}, UnityEventHelper.ValueChanged);\n" +
                        $"    UnityEventHelper.RemoveEvent(self.{luaName}, UnityEventHelper.EndEdit);\n" +
@@ -227,10 +235,19 @@ namespace XEngine.Editor
             return string.Empty;
         }
 
-        private static string MetaAppendCode(string nodeName, XComponentType typeName, string prefabName)
+        private static string MetaAppendCode(string nodeName, XComponentType type, string prefabName)
         {
-            string luaName = $"{typeName}_{nodeName}";
-            if (typeName == XComponentType.XButton)
+            string luaName = $"{type}_{nodeName}";
+            if (IsValueChangedType(type))
+            {
+                return $"---事件函数---\n" +
+                       $"---@param data System.Object[]\n" +
+                       $"function {prefabName}Meta:On_{luaName}_ValueChanged(data)\n" +
+                       $"\n" +
+                       $"end\n" +
+                       $"\n";
+            }
+            else if (type == XComponentType.XButton)
             {
                 return $"---事件函数---\n" +
                        $"function {prefabName}Meta:On_{luaName}_Click()\n" +
@@ -238,7 +255,7 @@ namespace XEngine.Editor
                        $"end\n" +
                        $"\n";
             }
-            else if (IsValueChangedXType(typeName))
+            else if (type == XComponentType.XInputField)
             {
                 return $"---事件函数---\n" +
                        $"---@param data System.Object[]\n" +
@@ -259,7 +276,7 @@ namespace XEngine.Editor
                        $"end\n" +
                        $"\n";
             }
-            else if (typeName == XComponentType.XButtonGroup)
+            else if (type == XComponentType.XButtonGroup)
             {
                 return $"---事件函数---\n" +
                        $"---@param data System.Object[]\n" +
@@ -269,7 +286,7 @@ namespace XEngine.Editor
                        $"end\n" +
                        $"\n";
             }
-            else if (typeName == XComponentType.XDragButton)
+            else if (type == XComponentType.XDragButton)
             {
                 return $"---事件函数---\n" +
                        $"---@param data System.Object[]\n" +
