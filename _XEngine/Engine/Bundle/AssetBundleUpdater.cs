@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using UnityEngine;
-using System;
-using System.Collections;
-using System.IO;
 using UnityEngine.Networking;
+using System;
+using System.IO;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 
 
 namespace XEngine.Engine
@@ -14,7 +15,7 @@ namespace XEngine.Engine
         private const int MaxRetryAccessServerTimes = 3; // 访问ab服务器的最大重试次数
         private int retriedAccessServerTimes = 0; // 访问ab服务器的已重试次数
 
-        public void CheckUpdate(ResourceMode resMode, string bundleServerUrl, Action<UpdateStatus> updateCallback, Action<long, long> updateLoaderProgress = null)
+        public async void CheckUpdate(ResourceMode resMode, string bundleServerUrl, Action<UpdateStatus> updateCallback, Action<long, long> updateLoaderProgress = null)
         {
             BundleManager.Instance.SetResourceMode(resMode);
             if (BundleManager.Instance.IsLoadRaw())
@@ -24,54 +25,77 @@ namespace XEngine.Engine
                 updateCallback?.Invoke(UpdateStatus.NoNeedUpdate);
                 return;
             }
+
             if (resMode == ResourceMode.LocalStreamingAssetBundle)
             {
                 // 从本地的 StreamingAsset 读取文件
                 // UnityWebRequest 不能直接在Mac,Linux上用 StreamingAssetPath 读取本地文件, 需要加上 file://
                 bundleServerUrl = "file://" + PathProtocol.LocalStreamingAssetBundlePath;
             }
-            GameManager.Instance.StartCoroutine(CheckUpdateAsync(bundleServerUrl, updateCallback, updateLoaderProgress));
+
+            // 本地缓存检查
+            var localVersionFilePath = Path.Combine(PathProtocol.DownloadBundleSaveDir, PathProtocol.VersionFileName);
+            VersionInfo cachedVersion = VersionUtil.LoadVersionInfoFromFile(localVersionFilePath);
+
+            // 异步检查并快速返回
+            await CheckUpdateAsync(resMode, bundleServerUrl, updateCallback, updateLoaderProgress);
         }
 
-        private IEnumerator CheckUpdateAsync(string bundleServerUrl, Action<UpdateStatus> updateCallback, Action<long, long> updateLoaderProgress)
+
+        public async Task CheckUpdateAsync(ResourceMode resMode, string bundleServerUrl, Action<UpdateStatus> updateCallback, Action<long, long> updateLoaderProgress = null)
         {
+            BundleManager.Instance.SetResourceMode(resMode);
+            if (BundleManager.Instance.IsLoadRaw())
+            {
+                GameManager.Instance.InitLua();
+                updateCallback?.Invoke(UpdateStatus.NoNeedUpdate);
+                return;
+            }
+
+            if (resMode == ResourceMode.LocalStreamingAssetBundle)
+            {
+                bundleServerUrl = "file://" + PathProtocol.LocalStreamingAssetBundlePath;
+            }
+
             string versionUrl = bundleServerUrl + PathProtocol.VersionFileName;
             Debug.LogFormat($"CheckUpdateAsync[Retry={retriedAccessServerTimes}]: {versionUrl}");
             if (!Directory.Exists(PathProtocol.DownloadBundleSaveDir))
             {
                 Directory.CreateDirectory(PathProtocol.DownloadBundleSaveDir);
             }
+
             while (!Caching.ready)
             {
-                yield return null;
+                await Task.Yield(); // 异步等待，防止阻塞主线程
             }
 
             byte[] versionData = null;
             while (retriedAccessServerTimes < MaxRetryAccessServerTimes)
             {
-                UnityWebRequest req = UnityWebRequest.Get(versionUrl);
-                yield return req.SendWebRequest();
-                if (req.error != null)
+                using (UnityWebRequest req = UnityWebRequest.Get(versionUrl))
                 {
-                    retriedAccessServerTimes++;
-                    Debug.LogFormat($"CheckUpdateAsync failed [retry={retriedAccessServerTimes}]: {req.error}]");
-                    req.Dispose();
-                    yield return new WaitForSeconds(retriedAccessServerTimes * 10); // 增加处理网络稳定性的等待时间
-                    continue;
-                }
+                    await req.SendWebRequest();
 
-                if (req.isDone)
-                {
-                    versionData = req.downloadHandler.data;
-                    req.Dispose();
-                    break;
+                    if (req.result == UnityWebRequest.Result.ConnectionError || req.result == UnityWebRequest.Result.ProtocolError)
+                    {
+                        retriedAccessServerTimes++;
+                        Debug.LogFormat($"CheckUpdateAsync failed [retry={retriedAccessServerTimes}]: {req.error}]");
+                        await Task.Delay(retriedAccessServerTimes * 3000); // 等待时间改为毫秒
+                        continue;
+                    }
+
+                    if (req.isDone)
+                    {
+                        versionData = req.downloadHandler.data;
+                        break;
+                    }
                 }
             }
 
             if (versionData == null)
             {
                 Debug.LogError("CheckUpdateAsync failed: " + versionUrl);
-                yield break;
+                return;
             }
 
             string versionInfoJson = GameUtil.Bytes2String(versionData);
@@ -93,7 +117,7 @@ namespace XEngine.Engine
                 case UpdateStatus.NeedDownloadNewClient:
                     GameManager.Instance.InitLua();
                     updateCallback?.Invoke(status);
-                    yield break;
+                    return;
                 case UpdateStatus.FirstTime:
                     NeedsUpdate = true;
                     var firstNewBundleInfo = newVersion.DecodeBundleInfo();
@@ -162,53 +186,75 @@ namespace XEngine.Engine
                 {
                     var fileInfo = new FileInfo(filePath);
                     existingFileSize = fileInfo.Length;
+
+                    // **MD5验证**
+                    var existingFileMD5 = GameUtil.GetFileMD5(filePath);
+                    if (existingFileMD5 == bundleInfo.md5)
+                    {
+                        downloadedBytes += existingFileSize;
+                        updateLoaderProgress?.Invoke(downloadedBytes, sumBytes);
+                        Debug.LogFormat($"File already exists and verified by MD5: {abName}");
+                        continue; // 已下载且MD5验证通过，跳过下载
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"MD5 mismatch for {abName}. Will re-download.");
+                        File.Delete(filePath); // 删除损坏的文件，重新下载
+                        existingFileSize = 0;
+                    }
                 }
 
                 while (retryCount < MaxRetryAccessServerTimes && !downloadSuccessful)
                 {
-                    UnityWebRequest req2 = UnityWebRequest.Get(bundleServerUrl + abName);
-                    if (existingFileSize > 0)
+                    using (UnityWebRequest req2 = UnityWebRequest.Get(bundleServerUrl + abName))
                     {
-                        req2.SetRequestHeader("Range", "bytes=" + existingFileSize + "-");
-                    }
-                    req2.timeout = 60;
-                    var asyncOperation = req2.SendWebRequest();
-
-                    while (!asyncOperation.isDone)
-                    {
-                        updateLoaderProgress?.Invoke(downloadedBytes + existingFileSize + (long)(size * asyncOperation.progress), sumBytes);
-                        yield return null;
-                    }
-
-                    if (req2.error != null)
-                    {
-                        retryCount++;
-                        Debug.LogFormat($"Download failed for {abName} [retry={retryCount}]: {req2.error}");
-                        req2.Dispose();
-                        yield return new WaitForSeconds(retryCount * 2f);
-                        continue;
-                    }
-
-                    if (req2.isDone)
-                    {
-                        byte[] data = req2.downloadHandler.data;
                         if (existingFileSize > 0)
                         {
-                            using (var fileStream = new FileStream(filePath, FileMode.Append))
-                            {
-                                fileStream.Write(data, 0, data.Length);
-                            }
+                            req2.SetRequestHeader("Range", "bytes=" + existingFileSize + "-");
                         }
-                        else
+                        req2.timeout = 60;
+                        await req2.SendWebRequest();
+
+                        if (req2.result == UnityWebRequest.Result.ConnectionError || req2.result == UnityWebRequest.Result.ProtocolError)
                         {
-                            GameUtil.Write2Disk(filePath, data);
+                            retryCount++;
+                            Debug.LogFormat($"Download failed for {abName} [retry={retryCount}]: {req2.error}");
+                            await Task.Delay(retryCount * 5000); // 重新等待时间改为毫秒
+                            continue;
                         }
 
-                        req2.Dispose();
-                        downloadedBytes += data.Length;
-                        updateLoaderProgress?.Invoke(downloadedBytes, sumBytes);
-                        Debug.LogFormat($"Downloaded: {downloadedBytes}/{sumBytes} Bytes");
-                        downloadSuccessful = true;
+                        if (req2.isDone)
+                        {
+                            byte[] data = req2.downloadHandler.data;
+                            if (existingFileSize > 0)
+                            {
+                                using (var fileStream = new FileStream(filePath, FileMode.Append))
+                                {
+                                    fileStream.Write(data, 0, data.Length);
+                                }
+                            }
+                            else
+                            {
+                                GameUtil.Write2Disk(filePath, data);
+                            }
+
+                            downloadedBytes += data.Length;
+                            updateLoaderProgress?.Invoke(downloadedBytes, sumBytes);
+                            Debug.LogFormat($"Downloaded: {downloadedBytes}/{sumBytes} Bytes");
+
+                            // **再次进行MD5验证**
+                            var downloadedFileMD5 = GameUtil.GetFileMD5(filePath);
+                            if (downloadedFileMD5 == bundleInfo.md5)
+                            {
+                                downloadSuccessful = true;
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"MD5 mismatch after download for {abName}. Retrying...");
+                                File.Delete(filePath); // 删除损坏的文件，重新下载
+                                existingFileSize = 0;
+                            }
+                        }
                     }
                 }
 
@@ -220,7 +266,7 @@ namespace XEngine.Engine
 
             var versionSaveFilePath = Path.Combine(PathProtocol.DownloadBundleSaveDir, PathProtocol.VersionFileName);
             GameUtil.Write2Disk(versionSaveFilePath, versionData);
-            yield return new WaitForSeconds(1f);
+            await Task.Delay(1000); // 等待1秒（延迟是为了确保所有数据写入磁盘）
 
             var allBundleSavedPath = Path.Combine(PathProtocol.DownloadBundleSaveDir, "AssetBundle");
             AssetBundle allBundle = AssetBundle.LoadFromFile(allBundleSavedPath);

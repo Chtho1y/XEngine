@@ -45,6 +45,18 @@ namespace XEngine.Main
             Input.multiTouchEnabled = false; // 禁用多点触控
         }
 
+        private void Start()
+        {
+            LoaderProgress.Begin();
+            GameUtil.GetOrAddComponent<GameManager>(this.gameObject);
+
+            var assetBundleUpdater = new AssetBundleUpdater();
+            assetBundleUpdater.CheckUpdate(resMode,
+                                            BundleServerConfig.ServerUrl,
+                                            OnCheckUpdateFinished,
+                                            LoaderProgress.UpdateLoadingProgress);
+        }
+
         private void OnCheckUpdateFinished(UpdateStatus status)
         {
             if (status == UpdateStatus.NeedDownloadNewClient)
@@ -56,15 +68,6 @@ namespace XEngine.Main
                 LoaderProgress.End();
                 GameManager.Instance.OnCheckUpdateFinished();
             }
-        }
-
-        private void Start()
-        {
-            GameUtil.GetOrAddComponent<GameManager>(this.gameObject);
-
-            var assetBundleUpdater = new AssetBundleUpdater();
-            assetBundleUpdater.CheckUpdate(resMode, BundleServerConfig.ServerUrl, OnCheckUpdateFinished, LoaderProgress.UpdateLoadingProgress);
-            LoaderProgress.Begin(assetBundleUpdater.NeedsUpdate); // 根据是否需要更新开始进度条
         }
 
         private void OnApplicationQuit()

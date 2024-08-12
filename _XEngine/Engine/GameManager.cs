@@ -250,5 +250,33 @@ namespace XEngine.Engine
 			}
 		}
 
+		public string GetDeviceID()
+		{
+			string deviceID = string.Empty;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        {
+            using (AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            {
+                using (AndroidJavaObject contentResolver = currentActivity.Call<AndroidJavaObject>("getContentResolver"))
+                {
+                    using (AndroidJavaClass settingsSecure = new AndroidJavaClass("android.provider.Settings$Secure"))
+                    {
+                        deviceID = settingsSecure.CallStatic<string>("getString", contentResolver, "android_id");
+                    }
+                }
+            }
+        }
+#elif UNITY_IOS && !UNITY_EDITOR
+        deviceID = SystemInfo.deviceUniqueIdentifier;
+#elif UNITY_EDITOR
+			deviceID = "EditorDeviceID";
+#else
+        deviceID = SystemInfo.deviceUniqueIdentifier;
+#endif
+			return deviceID;
+		}
+
 	}
 }
