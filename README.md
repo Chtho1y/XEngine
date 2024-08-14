@@ -58,7 +58,7 @@ To get a quick overview of how to run XEngine on various platforms, in Unity Pac
 https://github.com/Chtho1y/XEngine.git
 ```
 
- <img src="[https://github.com/user-attachments/assets/82faad3b-f08d-41c6-a927-f6d5647b7abf](https://private-user-images.githubusercontent.com/105774831/352809015-82faad3b-f08d-41c6-a927-f6d5647b7abf.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjM2MTM4MjYsIm5iZiI6MTcyMzYxMzUyNiwicGF0aCI6Ii8xMDU3NzQ4MzEvMzUyODA5MDE1LTgyZmFhZDNiLWYwOGQtNDFjNi1hOTI3LWY2ZDU2NDdiN2FiZi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwODE0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDgxNFQwNTMyMDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0yNTE3OWViMGRjMzdmNjRjNTI1MjVjYWYxNWJkNDJhOGZiMmI2MGIxYmU3Yjg2YjZhZTBiMzQ4MjMxMmRjNGJmJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.Vk-nNoPRQubhh2lFxDNNbJPM8-OE1LOlx3ETc6LFqGs)" width="600"/>
+ <img src="https://github.com/user-attachments/assets/82faad3b-f08d-41c6-a927-f6d5647b7abf" width="600"/>
 <br><br>
 
 Or add the following to your project's `manifest.json` file in the `Packages` folder:
